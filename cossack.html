@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cossack WA</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="path/to/font-awesome.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script>
+        function validateForm() {
+            let valid = true;
+            let errorMsg = "";
+    
+            // Get form elements
+            let requestor = document.getElementById("requestor").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let phone = document.getElementById("phone").value.trim();
+            let request = document.getElementById("request").value.trim();
+    
+            // Function to check if the field contains only letters
+            function isLettersOnly(field) {
+                let regex = /^[A-Za-z\s]+$/;
+                return regex.test(field);
+            }
+    
+            // Function to check if the phone field contains only numbers and '+'
+            function isPhoneValid(field) {
+                let regex = /^[0-9+]+$/;
+                return regex.test(field);
+            }
+    
+            // Function to check if the field contains "<" or ">"
+            function hasForbiddenChars(field) {
+                return field.includes("<") || field.includes(">");
+            }
+    
+            // Name validation
+            if (!requestor) {
+                valid = false;
+                errorMsg += "Name is required.\n";
+            } else if (!isLettersOnly(requestor) || hasForbiddenChars(requestor)) {
+                valid = false;
+                errorMsg += "Invalid characters in Name.\n";
+            }
+    
+            // Email validation
+            if (!email) {
+                valid = false;
+                errorMsg += "Email is required.\n";
+            }
+    
+            // Phone validation
+            if (!phone) {
+                valid = false;
+                errorMsg += "Phone is required.\n";
+            } else if (!isPhoneValid(phone) || hasForbiddenChars(phone)) {
+                valid = false;
+                errorMsg += "Invalid characters in Phone.\n";
+            }
+    
+            // Request validation
+            if (!request) {
+                valid = false;
+                errorMsg += "Request is required.\n";
+            } else if (hasForbiddenChars(request)) {
+                valid = false;
+                errorMsg += "Invalid characters in Request.\n";
+            }
+    
+            // Display error messages if validation fails
+            if (!valid) {
+                alert(errorMsg);
+            }
+    
+            return valid;
+        }
+    </script>
+</head>
+<body>
+    <!--Section Header-->
+    <div>
+        <!--Section Nav-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src=".//sources/images/Blue Spring Hotel Hotel Logo.png" alt="Blue Spring Hotel Logo" width="50" height="50">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href=".//index.html" target="_blank">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href=".//acknowledgement.html" target="_blank">Acknowledgement</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href=".//staff.html" target="_blank">Staff</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href=".//cossack.html" target="_blank">Cossack</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href=".//activities.html" target="_blank">Activities</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href=".//interest.html" target="_blank">Interest</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href=".//guestbook.html" target="_blank">GuestBook</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex ml-auto">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-warning" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!--Section Main-->
+    <div class="container-lg">
+        <div class="main-cossack">
+            <h1>Cossack WA</h1>
+                <h2>Western Australia's (Bajinhurrba) Seaside Sanctuary Awaits</h2>
+                    <p>Step back in time and immerse yourself in the captivating beauty of Cossack, Western Australia (Bajinhurrba). Nestled on the remote shores of the Dampier Peninsula, this former pearling boomtown offers a unique blend of rich history, stunning landscapes, and a deep connection to the Ngarluma Aboriginal people. </p>
+                        <p>Cossack's vibrant past comes alive through the well-preserved historic buildings and the fascinating exhibits at the Cossack Museum. Learn about the town's role in the pearling industry, a vital part of Western Australia's maritime heritage.</p>
+                       <p> Beyond the historical charm, Cossack boasts breathtaking natural beauty. Explore the rugged coastline, witness the diverse flora and fauna of the region, or simply relax and soak in the tranquility of this remote location.</p>
+        </div>
+        <div class="img-cossackwa">
+            <a href="https://www.architectureanddesign.com.au/news/hunt-concept-to-reinvigorate-north-west-wa-heritag" target="_blank">  <img src=".//sources/images/cossack.jpg" alt="Dubbed the Bajinhurrba Knowledge Centre"></a>
+        </div>
+    </div>
+    <!--Section Contact-->
+    <div class="contact">
+        <h2>Contact</h2>
+        <p>Feel free to reach out if you have any questions. We look forward to hearing from you!</p>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="contact-form">
+                        <form action="" method="POST" onsubmit="return validateForm()">
+                            <div class="form-group">
+                                <label for="requestor">Name:</label>
+                                <input type="text" class="form-control" id="requestor" name="requestor" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Contact Email:</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Contact Phone:</label>
+                                <input type="text" class="form-control" id="phone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="request">Request:</label>
+                                <textarea class="form-control" id="request" name="request" rows="4" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-outline-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h2>Cossack, Western Australia (Bajinhurrba)</h2>
+                    <a href="https://www.google.com/maps/place/Cossack+WA+6720/@-20.6985972,117.2062103,12.43z/data=!4m6!3m5!1s0x2bf5dfd76e6e11eb:0x400f6382479c970!8m2!3d-20.6784405!4d117.1884777!16zL20vMDg1MXZ6?entry=ttu" target="_blank">
+                        <img src=".//sources/images/map-cossack.png" alt="Cossack, Western Australia (Bajinhurrba)" class="img-fluid">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Section Footer-->
+    <div class="footer">
+        <p>&copy; 2024 BrumertzDev. All Rights Reserved.</p>
+    </div>
+
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

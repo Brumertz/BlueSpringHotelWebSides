@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interest</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="path/to/font-awesome.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .video, .iframe-video {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .nearby-town {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .nearby-town img {
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+            border-radius: 50%;
+        }
+
+        .nearby-town a {
+            text-decoration: none;
+            color: #007bff;
+        }
+    </style>
+   <script>
+    function validateForm() {
+        let valid = true;
+        let errorMsg = "";
+
+        // Get form elements
+        let requestor = document.getElementById("requestor").value.trim();
+        let email = document.getElementById("email").value.trim();
+        let phone = document.getElementById("phone").value.trim();
+        let request = document.getElementById("request").value.trim();
+
+        // Function to check if the field contains only letters
+        function isLettersOnly(field) {
+            let regex = /^[A-Za-z\s]+$/;
+            return regex.test(field);
+        }
+
+        // Function to check if the phone field contains only numbers and '+'
+        function isPhoneValid(field) {
+            let regex = /^[0-9+]+$/;
+            return regex.test(field);
+        }
+
+        // Function to check if the field contains "<" or ">"
+        function hasForbiddenChars(field) {
+            return field.includes("<") || field.includes(">");
+        }
+
+        // Name validation
+        if (!requestor) {
+            valid = false;
+            errorMsg += "Name is required.\n";
+        } else if (!isLettersOnly(requestor) || hasForbiddenChars(requestor)) {
+            valid = false;
+            errorMsg += "Invalid characters in Name.\n";
+        }
+
+        // Email validation
+        if (!email) {
+            valid = false;
+            errorMsg += "Email is required.\n";
+        }
+
+        // Phone validation
+        if (!phone) {
+            valid = false;
+            errorMsg += "Phone is required.\n";
+        } else if (!isPhoneValid(phone) || hasForbiddenChars(phone)) {
+            valid = false;
+            errorMsg += "Invalid characters in Phone.\n";
+        }
+
+        // Request validation
+        if (!request) {
+            valid = false;
+            errorMsg += "Request is required.\n";
+        } else if (hasForbiddenChars(request)) {
+            valid = false;
+            errorMsg += "Invalid characters in Request.\n";
+        }
+
+        // Display error messages if validation fails
+        if (!valid) {
+            alert(errorMsg);
+        }
+
+        return valid;
+    }
+</script>
+</head>
+<body>
+    <!--Section Header-->
+    <div>
+        <!--Section Nav-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src=".//sources/images/Blue Spring Hotel Hotel Logo.png" alt="Blue Spring Hotel Logo" width="50" height="50">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href=".//index.html" target="_blank">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href=".//acknowledgement.html" target="_blank">Acknowledgement</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href=".//staff.html" target="_blank">Staff</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href=".//cossack.html" target="_blank">Cossack</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href=".//activities.html" target="_blank">Activities</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href=".//interest.html" target="_blank">Interest</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href=".//guestbook.html" target="_blank">GuestBook</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex ml-auto">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-warning" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!--Section Main Interest-->
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">The Most Famous Things To Do In Cossack</h2>
+        <div id="thingsToDoCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <!-- First Slide -->
+                <div class="carousel-item active">
+                    <img src="sources/images/history_culture.jpg" class="d-block w-100" alt="History and Culture">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h4>Immerse Yourself in History and Culture</h4>
+                        <p><strong>Cape Leveque & Dampier Peninsula:</strong> Embark on a guided tour or self-drive adventure to explore the rich history of the Dampier Peninsula. Visit iconic landmarks like the historic jetty and lighthouse in Cape Leveque, learn about the traditional custodians of the land, the Ngarluma people, and witness breathtaking Aboriginal rock art.</p>
+                    </div>
+                </div>
+                <!-- Second Slide -->
+                <div class="carousel-item">
+                    <img src="sources/images/staircase_moon.jpg" class="d-block w-100" alt="Staircase to the Moon">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h4>Experience the Extraordinary: Staircase to the Moon</h4>
+                        <p>Witness a natural phenomenon unlike any other – the Staircase to the Moon. During certain full moon phases, an optical illusion creates the breathtaking spectacle of a shimmering staircase ascending from the tidal flats near Cossack. Combine this experience with a guided stargazing tour to learn about the constellations and immerse yourself in the vastness of the night sky.</p>
+                    </div>
+                </div>
+                <!-- Third Slide -->
+                <div class="carousel-item">
+                    <img src="sources/images/horseback_riding.jpg" class="d-block w-100" alt="Horseback Riding">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h4>Unwind and Embrace the Natural Beauty</h4>
+                        <p><strong>Horseback Riding Adventure:</strong> Experience the stunning scenery of Cossack and surrounds on a guided horseback riding tour. Explore hidden beaches, meander through bushland trails, and witness the diverse flora and fauna of the region from a unique perspective. This activity is suitable for both experienced riders and beginners, offering a memorable way to connect with nature.</p>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#thingsToDoCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#thingsToDoCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+     <!-- Nearby Towns and Hamlets -->
+<article class="container mt-5">
+    <h3 class="text-center mb-4">Nearby Towns and Hamlets</h3>
+    <div class="row">
+        <div class="col-md-3 nearby-town">
+            <img src="sources/images/karratha.jpg" alt="Karratha">
+            <a href="https://www.karratha.wa.gov.au/" target="_blank">Karratha</a>
+        </div>
+        <div class="col-md-3 nearby-town">
+            <img src="sources/images/broome.jpg" alt="Broome">
+            <a href="https://www.visitbroome.com.au/" target="_blank">Broome</a>
+        </div>
+        <div class="col-md-3 nearby-town">
+            <img src="sources/images/exmouth.jpg" alt="Exmouth">
+            <a href="https://www.exmouthwa.com.au/" target="_blank">Exmouth</a>
+        </div>
+        <div class="col-md-3 nearby-town">
+            <img src="sources/images/dampier.jpg" alt="Dampier">
+            <a href="https://www.visitdampier.com/" target="_blank">Dampier</a>
+        </div>
+    </div>
+</article>
+
+    <!-- Things to Do and Places to Visit -->
+    <article class="container mt-5">
+        <h3 class="text-center mb-4">Things to Do and Places to Visit</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Activity</th>
+                    <th>Location</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Fishing</td>
+                    <td>Cossack Beach</td>
+                    <td>Enjoy fishing at the beautiful Cossack Beach.</td>
+                </tr>
+                <tr>
+                    <td>Snorkeling</td>
+                    <td>Dampier Archipelago</td>
+                    <td>Explore underwater life in the Dampier Archipelago.</td>
+                </tr>
+                <tr>
+                    <td>Hiking</td>
+                    <td>Karijini National Park</td>
+                    <td>Experience the stunning landscapes of Karijini.</td>
+                </tr>
+                <tr>
+                    <td>Whale Watching</td>
+                    <td>Exmouth</td>
+                    <td>Watch majestic whales in their natural habitat.</td>
+                </tr>
+            </tbody>
+        </table>
+    </article>
+
+    <!-- Embedded Video -->
+    <article class="container mt-5">
+        <h3 class="text-center mb-4">Fishing in Cossack</h3>
+        <video controls class="rounded video">
+            <source src="sources/videos/fishing.webm" type="video/webm">
+            Your browser does not support the video tag.
+        </video>
+    </article>
+
+    <!-- YouTube Video -->
+    <article class="container mt-5">
+        <h3 class="text-center mb-4">Learn More About Cossack</h3>
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/rgctk0IoOtc"  allowfullscreen></iframe>
+        </div>
+    </article>
+
+    <!--Section Contact-->
+    <div class="contact">
+        <h2>Contact</h2>
+        <p>Feel free to reach out if you have any questions. We look forward to hearing from you!</p>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="contact-form">
+                        <form action="" method="POST" onsubmit="return validateForm()">
+                            <div class="form-group">
+                                <label for="requestor">Name:</label>
+                                <input type="text" class="form-control" id="requestor" name="requestor" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Contact Email:</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Contact Phone:</label>
+                                <input type="text" class="form-control" id="phone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="request">Request:</label>
+                                <textarea class="form-control" id="request" name="request" rows="4" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-outline-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h2>Cossack, Western Australia (Bajinhurrba)</h2>
+                    <a href="https://www.google.com/maps/place/Cossack+WA+6720/@-20.6985972,117.2062103,12.43z/data=!4m6!3m5!1s0x2bf5dfd76e6e11eb:0x400f6382479c970!8m2!3d-20.6784405!4d117.1884777!16zL20vMDg1MXZ6?entry=ttu" target="_blank">
+                        <img src=".//sources/images/map-cossack.png" alt="Cossack, Western Australia (Bajinhurrba)" class="img-fluid">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--Section Footer-->
+    <div class="footer">
+        <p>&copy; 2024 BrumertzDev. All Rights Reserved.</p>
+    </div>
+
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
